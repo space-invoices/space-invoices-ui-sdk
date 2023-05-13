@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+  </style>
+
+  <script src="./sdk.js"></script>
+  <script>
+    SpaceSDK.init({
+      accessToken: 'TOKEN',
+      environment: 'LOCAL',
+      organizationId: 'ORGANIZATION_ID',
+      targetDivId: 'sdk',
+    });
+
+    SpaceSDK.loadDashboard();
+
+    SpaceSDK.addDashboardListener((event) => {
+      console.log('Dashboard event:', event);
+    });
+  </script>
+</head>
+
+<body>
+  <div style="width: 100%; height: 100%; display: block;" id="sdk"></div>
+</body>
+
+</html>
