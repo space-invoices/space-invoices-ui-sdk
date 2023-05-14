@@ -1,8 +1,14 @@
+const SDK_URLS = {
+  PROD: 'https://sdk.spaceinvoices.com',
+  LOCAL: 'http://127.0.0.1:8080',
+}
+
 class SpaceSDK {
   static init(options) {
+    options.environment = options.environment || 'PROD';
     window.SpaceSDKQueue = window.SpaceSDKQueue || [];
     const sdkScript = document.createElement('script');
-    sdkScript.src = './sdk-internal.js';
+    sdkScript.src = SDK_URLS[options.environment] + '/sdk-internal.js';
     sdkScript.onload = () => {
       window.SpaceSDKInstance = new SpaceSDKInternal(options);
       window.SpaceSDKQueue.forEach((fn) => fn());

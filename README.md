@@ -5,13 +5,13 @@ Allows loading UI pages into website using iframe.
 ### Load SDK script in your website
 
 ```html
-<script src="https://spaceinovices.com/sdk.js">
+<script src="https://sdk.spaceinvoices.com/sdk.js">
 ```
 
 ### Init the SDK
 
 ```js
-SpaceSDK.init({  accessToken: 'TOKEN',
+SpaceSDK.init({ accessToken: 'TOKEN',
   organizationId: 'ORGANIZATION_ID',
   targetDivId: 'sdk',
 });

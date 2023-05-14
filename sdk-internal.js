@@ -1,4 +1,4 @@
-const SPACE_URLS = {
+const UI_URLS = {
   PROD: "https://app.getapollo.io",
   LOCAL: "http://localhost:4200",
 };
@@ -80,7 +80,7 @@ class SpaceSDKInternal {
 
   _loadPage(page) {
     const iframe = this._getIframe();
-    const url = `${SPACE_URLS[this.environment]}${page}?accessToken=${this.accessToken}&sdk=true`;
+    const url = `${UI_URLS[this.environment]}${page}?accessToken=${this.accessToken}&sdk=true`;
     const targetDiv = this._getContainerDiv();
 
     iframe.setAttribute("src", url);
@@ -90,7 +90,7 @@ class SpaceSDKInternal {
 
   _initListener() {
     window.addEventListener("message", (event) => {
-      if (event.origin !== SPACE_URLS[this.environment]) return;
+      if (event.origin !== UI_URLS[this.environment]) return;
       this._triggerListeners(event.data);
     });
   }
