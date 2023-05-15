@@ -28,8 +28,10 @@ SpaceSDK.init({
 |accessToken|Account Access Token|
 |organizationId|Id of Organization to load|
 |targetDivId|Html div element id to load the iframe in|
-|hideHeadMenu|Defaults is false. Option to hide the head menu on loaded page|
-|disableAutoHeight|Default is false. Disable auto iframe height adjustment|
+|whiteLabelDomain|Optional, use custom white label domain for the UI provided by Space Invoices. Contact us at support@spaceinvoices.com for further information.|
+|hideHeadMenu|Optional, defaults is false. Option to hide the head menu on loaded page.|
+|showSideMenu|Optional, default is false. Option to show side menu navigation.|
+|disableAutoHeight|Optional, default is false. Disable auto iframe height adjustment.|
 
 <br>
 
