@@ -69,4 +69,4 @@ SpaceSDK.addDocumentCreateListener((event) => {
 
 |Function|Description|
 |--|--|
-|SpaceSDK.addCreateDocumentListener()|Add listener for the create invoice page. Returned event contains created document data.|
+|SpaceSDK.addCreateDocumentListener()|Add listener for the create document page. Returned event contains created document data including type.|
