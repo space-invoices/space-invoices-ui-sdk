@@ -5,7 +5,7 @@ const SDK_URLS = {
 
 class SpaceSDK {
   /**
-   * 
+   * Initializes the SDK
    * @param {Object} options 
    * @param {string} options.accessToken - Access token for the Space API
    * @param {string} options.organizationId - Organization ID to use
@@ -13,6 +13,7 @@ class SpaceSDK {
    * @param {string} [options.environment] - Optiona, default is 'PROD'. Environment to use
    * @param {boolean} [options.hideHeadMenu] - Optional. Weather to hide the head menu
    * @param {boolean} [options.disableAutoHeight] - Optional. Weather to disable auto iframe height
+   * @param {string} [options.whiteLabelDomain] - Optional. Domain in case of white label usage
    */
   static init(options) {
     if (window.SpaceSDKInstance) {

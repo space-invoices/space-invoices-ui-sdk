@@ -27,6 +27,7 @@ class SpaceSDKInternal {
     this.targetDivId = options.targetDivId;
     this.hideHeadMenu = options.hideHeadMenu || false;
     this.disableAutoHeight = options.disableAutoHeight || false;
+    this.whiteLabelDomain = options.whiteLabelDomain;
 
     this._registeredListeners = {};
   
@@ -171,8 +172,13 @@ class SpaceSDKInternal {
   _loadPage(page) {
     const iframe = this._createIframe();
     const targetDiv = this._getContainerDiv();
+    let hostname = UI_URLS[this.environment];
 
-    let url = `${UI_URLS[this.environment]}${page}?accessToken=${this.accessToken}&sdk=true`;
+    if (this.whiteLabelDomain) {
+      hostname = this.whiteLabelDomain.replace(/\/$/, "");
+    }
+
+    let url = `${hostname}${page}?accessToken=${this.accessToken}&sdk=true`;
     if (this.hideHeadMenu) url += "&hideHeadMenu=true";
 
     iframe.setAttribute("src", url);
