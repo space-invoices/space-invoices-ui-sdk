@@ -101,6 +101,19 @@ class SpaceSDK {
   }
 
   /**
+   * Loads the create invoice page
+   */
+  static loadCreateInvoice() {
+    if (window.SpaceSDKInstance) {
+      window.SpaceSDKInstance.loadCreateInvoice();
+    } else {
+      window.SpaceSDKQueue.push(() => {
+        window.SpaceSDK.loadCreateInvoice();
+      });
+    }
+  }
+
+  /**
    * Loads the create estimate page
    */
   static loadCreateEstimate() {
@@ -184,113 +197,29 @@ class SpaceSDK {
   }
 
   /**
-   * Adds a listener for the create invoice page events
+   * Adds a listener for the create document events
    * @param {function} listener - Listener function to add
    */
-  static addCreateInvoiceListener(listener) {
+  static addCreateDocumentListener(listener) {
     if (window.SpaceSDKInstance) {
-      window.SpaceSDKInstance.addCreateInvoiceListener(listener);
+      window.SpaceSDKInstance.addCreateDocumentListener(listener);
     } else {
       window.SpaceSDKQueue.push(() => {
-        window.SpaceSDK.addCreateInvoiceListener(listener);
+        window.SpaceSDK.addCreateDocumentListener(listener);
       });
     }
   }
 
   /**
-   * Revmoes a listener for the create invoice page events
+   * Removes a listener for the create document events
    * @param {function} listener - Listener function to remove
    */
-  static removeCreateInvoiceListener(listener) {
+  static removeCreateDocumentListener(listener) {
     if (window.SpaceSDKInstance) {
-      window.SpaceSDKInstance.removeCreateInvoiceListener(listener);
+      window.SpaceSDKInstance.removeCreateDocumentListener(listener);
     } else {
       window.SpaceSDKQueue.push(() => {
-        window.SpaceSDK.removeCreateInvoiceListener(listener);
-      });
-    }
-  }
-
-  /**
-   * Adds a listener for the create estimate page events
-   * @param {function} listener - Listener function to add
-   */
-  static addCreateEstimateListener(listener) {
-    if (window.SpaceSDKInstance) {
-      window.SpaceSDKInstance.addCreateEstimateListener(listener);
-    } else {
-      window.SpaceSDKQueue.push(() => {
-        window.SpaceSDK.addCreateEstimateListener(listener);
-      });
-    }
-  }
-
-  /**
-   * Removes a listener for the create estimate page events
-   * @param {function} listener - Listener function to remove
-   */
-  static removeCreateEstimateListener(listener) {
-    if (window.SpaceSDKInstance) {
-      window.SpaceSDKInstance.removeCreateEstimateListener(listener);
-    } else {
-      window.SpaceSDKQueue.push(() => {
-        window.SpaceSDK.removeCreateEstimateListener(listener);
-      });
-    }
-  }
-
-  /**
-   * Adds a listener for the create credit-note page events
-   * @param {function} listener - Listener function to add
-   */
-  static addCreateCreditNoteListener(listener) {
-    if (window.SpaceSDKInstance) {
-      window.SpaceSDKInstance.addCreateCreditNoteListener(listener);
-    } else {
-      window.SpaceSDKQueue.push(() => {
-        window.SpaceSDK.addCreateCreditNoteListener(listener);
-      });
-    }
-  }
-
-  /**
-   * Removes a listener for the create credit-note page events
-   * @param {function} listener - Listener function to remove
-   */
-  static removeCreateCreditNoteListener(listener) {
-    if (window.SpaceSDKInstance) {
-      window.SpaceSDKInstance.removeCreateCreditNoteListener(listener);
-    } else {
-      window.SpaceSDKQueue.push(() => {
-        window.SpaceSDK.removeCreateCreditNoteListener(listener);
-      });
-    }
-  }
-
-  /**
-   * Adds a listener for the create advance page events
-   * @param {function} listener - Listener function to add
-   */
-  static addCreateAdvanceListener(listener) {
-    if (window.SpaceSDKInstance) {
-      window.SpaceSDKInstance.addCreateAdvanceListener(listener);
-    } else {
-      window.SpaceSDKQueue.push(() => {
-        window.SpaceSDK.addCreateAdvanceListener(listener);
-      });
-    }
-  }
-
-  /**
-   * Removes a listener for the create advance page events
-   * @param {function} listener - Listener function to remove
-   */
-  static removeCreateAdvanceListener(listener) {
-    if (window.SpaceSDKInstance) {
-      window.SpaceSDKInstance.removeCreateAdvanceListener(listener);
-    } else {
-      window.SpaceSDKQueue.push(() => {
-        window.SpaceSDK.removeCreateAdvanceListener(listener);
+        window.SpaceSDK.removeCreateDocumentListener(listener);
       });
     }
   }

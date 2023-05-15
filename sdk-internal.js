@@ -5,16 +5,14 @@ const UI_URLS = {
 
 const LISTENERS = {
   DASHBOARD: "DASHBOARD",
-  CREATE_INVOICE: "CREATE_INVOICE",
-  CREATE_ESTIMATE: "CREATE_ESTIMATE",
-  CREATE_CREDIT_NOTE: "CREATE_CREDIT_NOTE",
-  CREATE_ADVANCE: "CREATE_ADVANCE",
-  DOCUMENT_HEIGHT: 'DOCUMENT_HEIGHT',
+  DOCUMENT_CREATE: "DOCUMENT_CREATE",
+  DOCUMENT_HEIGHT: 'DOCUMENT_HEIGHT', // iframe height adjust event
 };
 
 const EVENTS = {
   DASHBOARD_AFTER_VIEW_INIT: LISTENERS.DASHBOARD,
   DOCUMENT_HEIGHT: LISTENERS.DOCUMENT_HEIGHT,
+  DOCUMENT_CREATE: LISTENERS.DOCUMENT_CREATE,
 }
 
 class SpaceSDKInternal {
@@ -89,36 +87,12 @@ class SpaceSDKInternal {
     this._removeListener(LISTENERS.DASHBOARD, listener);
   }
 
-  addCreateInvoiceListener(listener) {
-    this._addListener(LISTENERS.CREATE_INVOICE, listener);
+  addCreateDocumentListener(listener) {
+    this._addListener(LISTENERS.DOCUMENT_CREATE, listener);
   }
 
-  removeCreateInvoiceListener(listener) {
-    this._removeListener(LISTENERS.CREATE_INVOICE, listener);
-  }
-
-  addCreateEstimateListener(listener) {
-    this._addListener(LISTENERS.CREATE_ESTIMATE, listener);
-  }
-
-  removeCreateEstimateListener(listener) {
-    this._removeListener(LISTENERS.CREATE_ESTIMATE, listener);
-  }
-
-  addCreateCreditNoteListener(listener) {
-    this._addListener(LISTENERS.CREATE_CREDIT_NOTE, listener);
-  }
-
-  removeCreateCreditNoteListener(listener) {
-    this._removeListener(LISTENERS.CREATE_CREDIT_NOTE, listener);
-  }
-
-  addCreateAdvanceListener(listener) {
-    this._addListener(LISTENERS.CREATE_ADVANCE, listener);
-  }
-
-  removeCreateAdvanceListener(listener) {
-    this._removeListener(LISTENERS.CREATE_ADVANCE, listener);
+  removeCreateDocumentListener(listener) {
+    this._removeListener(LISTENERS.DOCUMENT_CREATE, listener);
   }
 
   _addListener(type, listener) {
