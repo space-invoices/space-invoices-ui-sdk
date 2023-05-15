@@ -4,7 +4,7 @@ Allows loading UI pages into website using iframe.
 
 <br>
 
-#### Load SDK script in your website
+### Load SDK script in your website
 
 ```html
 <script src="https://sdk.spaceinvoices.com/sdk.js">
@@ -12,7 +12,7 @@ Allows loading UI pages into website using iframe.
 
 <br>
 
-#### Init the SDK
+### Init the SDK
 
 ```js
 SpaceSDK.init({
@@ -33,7 +33,7 @@ SpaceSDK.init({
 
 <br>
 
-#### Trigger rendering a page
+### Trigger rendering a page
 
 ```js
 SpaceSDK.loadDashboard();
@@ -55,7 +55,7 @@ SpaceSDK.loadDashboard();
 
 <br>
 
-#### Optionally add an event listener for dashboard page events
+### Optionally add an event listener for dashboard page events
 
 ```js
 SpaceSDK.addDashboardListener((event) => {
