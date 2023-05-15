@@ -61,7 +61,7 @@ SpaceSDK.loadDashboard();
 
 ```js
 SpaceSDK.addDocumentCreateListener((event) => {
-  console.log('Dashboard create event:', event);
+  console.log('Document create event:', event);
 });
 ```
 
