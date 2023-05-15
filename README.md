@@ -2,6 +2,8 @@
 
 Allows loading UI pages into website using iframe.
 
+> For more details please check our official documentation at https://spaceinvoices.com/docs/UI-SDK
+
 <br>
 
 ### Load SDK script in your website
