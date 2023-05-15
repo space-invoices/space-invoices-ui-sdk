@@ -58,8 +58,8 @@ SpaceSDK.loadDashboard();
 ### Optionally add an event listener for dashboard page events
 
 ```js
-SpaceSDK.addDashboardListener((event) => {
-  console.log('Dashboard event:', event);
+SpaceSDK.addDocumentCreateListener((event) => {
+  console.log('Dashboard create event:', event);
 });
 ```
 
@@ -67,8 +67,4 @@ SpaceSDK.addDashboardListener((event) => {
 
 |Function|Description|
 |--|--|
-|SpaceSDK.addDashboardListener()|Add listener for the dashbaord page|
-|SpaceSDK.addCreateInvoiceListener()|Add listener for the create invoice page|
-|SpaceSDK.addCreateEstimateListener()|Add listener for the create estimate page|
-|SpaceSDK.addCreateCreditNoteListener()|Add listener for the create credit note page|
-|SpaceSDK.addCreateAdvanceListener()|Add listener for the create advance page|
+|SpaceSDK.addCreateDocumentListener()|Add listener for the create invoice page. Returned event contains created document data.|
