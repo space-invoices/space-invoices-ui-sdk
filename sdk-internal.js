@@ -5,10 +5,16 @@ const UI_URLS = {
 
 const LISTENERS = {
   DASHBOARD: "DASHBOARD",
+  CREATE_INVOICE: "CREATE_INVOICE",
+  CREATE_ESTIMATE: "CREATE_ESTIMATE",
+  CREATE_CREDIT_NOTE: "CREATE_CREDIT_NOTE",
+  CREATE_ADVANCE: "CREATE_ADVANCE",
+  DOCUMENT_HEIGHT: 'DOCUMENT_HEIGHT',
 };
 
 const EVENTS = {
   DASHBOARD_AFTER_VIEW_INIT: LISTENERS.DASHBOARD,
+  DOCUMENT_HEIGHT: LISTENERS.DOCUMENT_HEIGHT,
 }
 
 class SpaceSDKInternal {
@@ -19,6 +25,8 @@ class SpaceSDKInternal {
     this.environment = options.environment || "PROD";
     this.organizationId = options.organizationId;
     this.targetDivId = options.targetDivId;
+    this.hideHeadMenu = options.hideHeadMenu || false;
+    this.disableAutoHeight = options.disableAutoHeight || false;
 
     this._registeredListeners = {};
   
@@ -31,12 +39,85 @@ class SpaceSDKInternal {
     this._loadPage(`/${this.organizationId}/dashboard`);
   }
 
+  loadListInvoices() {
+    this._loadPage(`/${this.organizationId}/documents/o/invoice`);
+  }
+
+  loadListEstimates() {
+    this._loadPage(`/${this.organizationId}/documents/o/estimate`);
+  }
+
+  loadListCreditNote() {
+    this._loadPage(`/${this.organizationId}/documents/o/credit-note`);
+  }
+
+  loadListAdvances() {
+    this._loadPage(`/${this.organizationId}/documents/o/advance`);
+  }
+
+  loadCreateInvoice() {
+    this._loadPage(`/${this.organizationId}/documents/o/add/invoice`);
+  }
+
+  loadCreateEstimate() {
+    this._loadPage(`/${this.organizationId}/documents/o/add/estimate`);
+  }
+
+  loadCreateCreditNote() {
+    this._loadPage(`/${this.organizationId}/documents/o/add/credit-note`);
+  }
+
+  loadCreateAdvance() {
+    this._loadPage(`/${this.organizationId}/documents/o/add/advance`);
+  }
+
+  loadViewDocument(id) {
+    if (!id) {
+      console.error("Error: ID is required to load a document");
+      return;
+    }
+
+    this._loadPage(`/${this.organizationId}/documents/o/view/${id}`);
+  }
+
   addDashboardListener(listener) {
     this._addListener(LISTENERS.DASHBOARD, listener);
   }
 
   removeDashboardListener(listener) {
     this._removeListener(LISTENERS.DASHBOARD, listener);
+  }
+
+  addCreateInvoiceListener(listener) {
+    this._addListener(LISTENERS.CREATE_INVOICE, listener);
+  }
+
+  removeCreateInvoiceListener(listener) {
+    this._removeListener(LISTENERS.CREATE_INVOICE, listener);
+  }
+
+  addCreateEstimateListener(listener) {
+    this._addListener(LISTENERS.CREATE_ESTIMATE, listener);
+  }
+
+  removeCreateEstimateListener(listener) {
+    this._removeListener(LISTENERS.CREATE_ESTIMATE, listener);
+  }
+
+  addCreateCreditNoteListener(listener) {
+    this._addListener(LISTENERS.CREATE_CREDIT_NOTE, listener);
+  }
+
+  removeCreateCreditNoteListener(listener) {
+    this._removeListener(LISTENERS.CREATE_CREDIT_NOTE, listener);
+  }
+
+  addCreateAdvanceListener(listener) {
+    this._addListener(LISTENERS.CREATE_ADVANCE, listener);
+  }
+
+  removeCreateAdvanceListener(listener) {
+    this._removeListener(LISTENERS.CREATE_ADVANCE, listener);
   }
 
   _addListener(type, listener) {
@@ -64,7 +145,7 @@ class SpaceSDKInternal {
     if (!event || !event.type) return;
 
     if (!EVENTS[event.type]) {
-      console.warn(`Warningn: Unknown event type "${event.data.type}"`);
+      console.warn(`Warning: Unknown event type "${event.type}"`);
       return;
     }
 
@@ -78,14 +159,26 @@ class SpaceSDKInternal {
     });
   }
 
+  _registerIframeHeightListener() {
+    if (this.disableAutoHeight) return;
+
+    this._addListener(LISTENERS.DOCUMENT_HEIGHT, (event) => {
+      if (!event || !event.payload || !event.payload.height) return;
+      this._setIframeHeight(event.payload.height);
+    });
+  }
+
   _loadPage(page) {
-    const iframe = this._getIframe();
-    const url = `${UI_URLS[this.environment]}${page}?accessToken=${this.accessToken}&sdk=true`;
+    const iframe = this._createIframe();
     const targetDiv = this._getContainerDiv();
+
+    let url = `${UI_URLS[this.environment]}${page}?accessToken=${this.accessToken}&sdk=true`;
+    if (this.hideHeadMenu) url += "&hideHeadMenu=true";
 
     iframe.setAttribute("src", url);
     targetDiv.appendChild(iframe);
     this._initListener();
+    this._registerIframeHeightListener();
   }
 
   _initListener() {
@@ -95,10 +188,10 @@ class SpaceSDKInternal {
     });
   }
 
-  _getIframe() {
+  _createIframe() {
     const iframe = document.createElement("iframe");
     iframe.setAttribute("title", "SpaceSDK");
-    iframe.setAttribute("scrolling", "no");
+    // iframe.setAttribute("scrolling", "no");
     iframe.style.height = "100%";
     iframe.style.width = "100%";
     iframe.style.border = "none";
@@ -114,5 +207,10 @@ class SpaceSDKInternal {
     }
 
     return targetDiv;
+  }
+
+  _setIframeHeight(height) {
+    const iframe = document.getElementById(this.targetDivId);
+    iframe.style.height = `${height}px`;
   }
 }
