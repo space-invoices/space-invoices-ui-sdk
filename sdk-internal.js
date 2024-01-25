@@ -6,14 +6,14 @@ const UI_URLS = {
 const LISTENERS = {
   DASHBOARD: "DASHBOARD",
   DOCUMENT_CREATE: "DOCUMENT_CREATE",
-  DOCUMENT_HEIGHT: 'DOCUMENT_HEIGHT', // iframe height adjust event
+  DOCUMENT_HEIGHT: "DOCUMENT_HEIGHT", // iframe height adjust event
 };
 
 const EVENTS = {
   DASHBOARD_AFTER_VIEW_INIT: LISTENERS.DASHBOARD,
   DOCUMENT_HEIGHT: LISTENERS.DOCUMENT_HEIGHT,
   DOCUMENT_CREATE: LISTENERS.DOCUMENT_CREATE,
-}
+};
 
 class SpaceSDKInternal {
   _registeredListeners = {};
@@ -28,8 +28,8 @@ class SpaceSDKInternal {
     this.whiteLabelDomain = options.whiteLabelDomain;
 
     this._registeredListeners = {};
-  
-    Object.keys(LISTENERS).forEach((listener) => { 
+
+    Object.keys(LISTENERS).forEach((listener) => {
       this._registeredListeners[LISTENERS[listener]] = [];
     });
   }
@@ -152,7 +152,7 @@ class SpaceSDKInternal {
       hostname = this.whiteLabelDomain.replace(/\/$/, "");
     }
 
-    let url = `${hostname}${page}?accessToken=${this.accessToken}&sdk=true`;
+    let url = `${hostname}${page}?access_token=${this.accessToken}&sdk=true`;
     if (this.hideHeadMenu) url += "&hideHeadMenu=true";
 
     iframe.setAttribute("src", url);
