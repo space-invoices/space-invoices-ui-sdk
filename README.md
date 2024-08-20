@@ -18,22 +18,23 @@ Allows loading UI pages into website using iframe.
 
 ```js
 SpaceSDK.init({
-  accessToken: 'TOKEN',
-  organizationId: 'ORGANIZATION_ID',
-  targetDivId: 'sdk',
+  accessToken: "TOKEN",
+  organizationId: "ORGANIZATION_ID",
+  targetDivId: "sdk",
 });
 ```
 
 **Availabe options**
-|Option|Description|
-|--|--|
-|accessToken|Account Access Token|
-|organizationId|Id of Organization to load|
-|targetDivId|Html div element id to load the iframe in|
-|whiteLabelDomain|Optional, use custom white label domain for the UI provided by Space Invoices. Contact us at support@spaceinvoices.com for further information.|
-|hideHeadMenu|Optional, defaults is false. Option to hide the head menu on loaded page.|
-|showSideMenu|Optional, default is false. Option to show side menu navigation.|
-|disableAutoHeight|Optional, default is false. Disable auto iframe height adjustment.|
+
+| Option            | Description                                                                                                                                     |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| accessToken       | Account Access Token                                                                                                                            |
+| organizationId    | Id of Organization to load                                                                                                                      |
+| targetDivId       | Html div element id to load the iframe in                                                                                                       |
+| whiteLabelDomain  | Optional, use custom white label domain for the UI provided by Space Invoices. Contact us at support@spaceinvoices.com for further information. |
+| hideHeadMenu      | Optional, defaults is false. Option to hide the head menu on loaded page.                                                                       |
+| showSideMenu      | Optional, default is false. Option to show side menu navigation.                                                                                |
+| disableAutoHeight | Optional, default is false. Disable auto iframe height adjustment.                                                                              |
 
 <br>
 
@@ -44,18 +45,24 @@ SpaceSDK.loadDashboard();
 ```
 
 **Availabel pages**
-|Function|Description|
-|--|--|
-|SpaceSDK.loadDashboard()|Load dashboard page|
-|SpaceSDK.loadListInvoices()|Load page with list of invoices|
-|SpaceSDK.loadListEstimates()|Load page with list of estimates|
-|SpaceSDK.loadListCreditNotes()|Load page with list of credit notes|
-|SpaceSDK.loadListAdvances()|Load page with list of advances|
-|SpaceSDK.loadCreateInvoice()|Load the create invoice page|
-|SpaceSDK.loadCreateEstimate()|Load the create estimate page|
-|SpaceSDK.loadCreateCreditNote()|Load the create credit note page|
-|SpaceSDK.loadCreateAdvance()|Load the create advance page|
-|SpaceSDK.loadViewDocument(id: string)|Load the view document by id page|
+
+| Function                                                    | Description                                    |
+| ----------------------------------------------------------- | ---------------------------------------------- |
+| SpaceSDK.loadDashboard()                                    | Load dashboard page                            |
+| SpaceSDK.loadListInvoices()                                 | Load page with list of invoices                |
+| SpaceSDK.loadListEstimates()                                | Load page with list of estimates               |
+| SpaceSDK.loadListCreditNotes()                              | Load page with list of credit notes            |
+| SpaceSDK.loadListAdvances()                                 | Load page with list of advances                |
+| SpaceSDK.loadCreateInvoice()                                | Load the create invoice page                   |
+| SpaceSDK.loadCreateEstimate()                               | Load the create estimate page                  |
+| SpaceSDK.loadCreateCreditNote()                             | Load the create credit note page               |
+| SpaceSDK.loadCreateAdvance()                                | Load the create advance page                   |
+| SpaceSDK.loadViewDocument(id: string)                       | Load the view document by id page              |
+| SpaceSDK.loadListIncomingInvoices()                         | Load page with list of incoming invoices       |
+| SpaceSDK.loadCreateIncomingInvoice()                        | Load the create incoming invoice page          |
+| SpaceSDK.loadClientListDocuments(id: string, type?: string) | Load the client documents page by id and type. |
+| SpaceSDK.loadOrganizationSettings()                         | Load the organization settings page            |
+| SpaceSDK.loadCustomizations()                               | Load the customizations page                   |
 
 <br>
 
@@ -63,12 +70,12 @@ SpaceSDK.loadDashboard();
 
 ```js
 SpaceSDK.addDocumentCreateListener((event) => {
-  console.log('Document create event:', event);
+  console.log("Document create event:", event);
 });
 ```
 
 **Available listeners**
 
-|Function|Description|
-|--|--|
-|SpaceSDK.addCreateDocumentListener()|Add listener for the create document page. Returned event contains created document data including type.|
+| Function                             | Description                                                                                              |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| SpaceSDK.addCreateDocumentListener() | Add listener for the create document page. Returned event contains created document data including type. |

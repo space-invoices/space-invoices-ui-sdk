@@ -34,6 +34,10 @@ class SpaceSDKInternal {
     });
   }
 
+  /**
+   * PAGE LOADERS
+   */
+
   loadDashboard() {
     this._loadPage(`/${this.organizationId}/dashboard`);
   }
@@ -78,6 +82,36 @@ class SpaceSDKInternal {
 
     this._loadPage(`/${this.organizationId}/documents/o/view/${id}`);
   }
+
+  loadListIncomingInvoices() {
+    this._loadPage(`/${this.organizationId}/documents/i/invoice`);
+  }
+
+  loadCreateIncomingInvoice() {
+    this._loadPage(`/${this.organizationId}/documents/i/add/invoice`);
+  }
+
+  loadClientListDocuments(id, type) {
+    if (!id) {
+      console.error("Error: ID is required to load client documents");
+    }
+
+    type = type || "invoice";
+
+    this._loadPage(`/${this.organizationId}/clients/${id}/${type}`);
+  }
+
+  loadOrganizationSettings() {
+    this._loadPage(`/${this.organizationId}/settings/organization`);
+  }
+
+  loadCustomizations() {
+    this._loadPage(`/${this.organizationId}/settings/customizations`);
+  }
+
+  /**
+   * LISTENERS
+   */
 
   addDashboardListener(listener) {
     this._addListener(LISTENERS.DASHBOARD, listener);
@@ -142,6 +176,10 @@ class SpaceSDKInternal {
       this._setIframeHeight(event.payload.height);
     });
   }
+
+  /**
+   * UTILS
+   */
 
   _loadPage(page) {
     const iframe = this._createIframe();

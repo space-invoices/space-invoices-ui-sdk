@@ -1,12 +1,12 @@
 const SDK_URLS = {
-  PROD: 'https://sdk.spaceinvoices.com',
-  LOCAL: 'http://127.0.0.1:8080',
-}
+  PROD: "https://sdk.spaceinvoices.com",
+  LOCAL: "http://127.0.0.1:8080",
+};
 
 class SpaceSDK {
   /**
    * Initializes the SDK
-   * @param {Object} options 
+   * @param {Object} options
    * @param {string} options.accessToken - Access token for the Space API
    * @param {string} options.organizationId - Organization ID to use
    * @param {string} options.targetDivId - ID of the div to render the SDK in
@@ -17,14 +17,14 @@ class SpaceSDK {
    */
   static init(options) {
     if (window.SpaceSDKInstance) {
-      throw new Error('SpaceSDK already initialized');
+      throw new Error("SpaceSDK already initialized");
     }
 
     window.SpaceSDKQueue = window.SpaceSDKQueue || [];
-    options.environment = options.environment || 'PROD';
+    options.environment = options.environment || "PROD";
 
-    const sdkScript = document.createElement('script');
-    sdkScript.src = SDK_URLS[options.environment] + '/sdk-internal.js';
+    const sdkScript = document.createElement("script");
+    sdkScript.src = SDK_URLS[options.environment] + "/sdk-internal.js";
     sdkScript.onload = () => {
       window.SpaceSDKInstance = new SpaceSDKInternal(options);
       window.SpaceSDKQueue.forEach((fn) => fn());
@@ -162,6 +162,56 @@ class SpaceSDK {
     } else {
       window.SpaceSDKQueue.push(() => {
         window.SpaceSDK.loadViewDocument(id);
+      });
+    }
+  }
+
+  static loadListIncomingInvoices() {
+    if (window.SpaceSDKInstance) {
+      window.SpaceSDKInstance.loadListIncomingInvoices();
+    } else {
+      window.SpaceSDKQueue.push(() => {
+        window.SpaceSDK.loadListIncomingInvoices();
+      });
+    }
+  }
+
+  static loadCreateIncomingInvoice() {
+    if (window.SpaceSDKInstance) {
+      window.SpaceSDKInstance.loadCreateIncomingInvoice();
+    } else {
+      window.SpaceSDKQueue.push(() => {
+        window.SpaceSDK.loadCreateIncomingInvoice();
+      });
+    }
+  }
+
+  static loadClientListDocuments(id) {
+    if (window.SpaceSDKInstance) {
+      window.SpaceSDKInstance.loadClientListDocuments(id);
+    } else {
+      window.SpaceSDKQueue.push(() => {
+        window.SpaceSDK.loadClientListDocuments(id);
+      });
+    }
+  }
+
+  static loadOrganizationSettings() {
+    if (window.SpaceSDKInstance) {
+      window.SpaceSDKInstance.loadOrganizationSettings();
+    } else {
+      window.SpaceSDKQueue.push(() => {
+        window.SpaceSDK.loadOrganizationSettings();
+      });
+    }
+  }
+
+  static loadCustomizations() {
+    if (window.SpaceSDKInstance) {
+      window.SpaceSDKInstance.loadCustomizations();
+    } else {
+      window.SpaceSDKQueue.push(() => {
+        window.SpaceSDK.loadCustomizations();
       });
     }
   }
