@@ -101,6 +101,19 @@ class SpaceSDK {
   }
 
   /**
+   * Loads the list of delivery notes page
+   */
+  static loadListDeliveryNotes() {
+    if (window.SpaceSDKInstance) {
+      window.SpaceSDKInstance.loadListDeliveryNotes();
+    } else {
+      window.SpaceSDKQueue.push(() => {
+        window.SpaceSDK.loadListDeliveryNotes();
+      });
+    }
+  }
+
+  /**
    * Loads the create invoice page
    */
   static loadCreateInvoice() {

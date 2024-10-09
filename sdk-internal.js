@@ -58,6 +58,10 @@ class SpaceSDKInternal {
     this._loadPage(`/${this.organizationId}/documents/o/advance`);
   }
 
+  loadListDeliveryNotes() {
+    this._loadPage(`/${this.organizationId}/documents/o/delivery-note`);
+  }
+
   loadCreateInvoice() {
     this._loadPage(`/${this.organizationId}/documents/o/add/invoice`);
   }
