@@ -53,10 +53,12 @@ SpaceSDK.loadDashboard();
 | SpaceSDK.loadListEstimates()                                | Load page with list of estimates               |
 | SpaceSDK.loadListCreditNotes()                              | Load page with list of credit notes            |
 | SpaceSDK.loadListAdvances()                                 | Load page with list of advances                |
+| SpaceSDK.loadListDeliveryNotes()                            | Load page with list of delivery notes          |
 | SpaceSDK.loadCreateInvoice()                                | Load the create invoice page                   |
 | SpaceSDK.loadCreateEstimate()                               | Load the create estimate page                  |
 | SpaceSDK.loadCreateCreditNote()                             | Load the create credit note page               |
 | SpaceSDK.loadCreateAdvance()                                | Load the create advance page                   |
+| SpaceSDK.loadCreateDeliveryNote()                           | Load the create delivery note page             |
 | SpaceSDK.loadViewDocument(id: string)                       | Load the view document by id page              |
 | SpaceSDK.loadListIncomingInvoices()                         | Load page with list of incoming invoices       |
 | SpaceSDK.loadCreateIncomingInvoice()                        | Load the create incoming invoice page          |

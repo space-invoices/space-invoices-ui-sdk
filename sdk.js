@@ -166,6 +166,19 @@ class SpaceSDK {
   }
 
   /**
+   * Loads the create delivery note page
+   */
+  static loadCreateDeliveryNote() {
+    if (window.SpaceSDKInstance) {
+      window.SpaceSDKInstance.loadCreateDeliveryNote();
+    } else {
+      window.SpaceSDKQueue.push(() => {
+        window.SpaceSDK.loadCreateDeliveryNote();
+      });
+    }
+  }
+
+  /**
    * Loads the view document page
    * @param {string} id - ID of the document to load
    */

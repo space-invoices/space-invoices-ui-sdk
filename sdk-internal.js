@@ -78,6 +78,10 @@ class SpaceSDKInternal {
     this._loadPage(`/${this.organizationId}/documents/o/add/advance`);
   }
 
+  loadCreateDeliveryNote() {
+    this._loadPage(`/${this.organizationId}/documents/o/add/delivery-note`);
+  }
+
   loadViewDocument(id) {
     if (!id) {
       console.error("Error: ID is required to load a document");
