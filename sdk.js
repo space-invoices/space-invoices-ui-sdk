@@ -222,6 +222,16 @@ class SpaceSDK {
     }
   }
 
+  static loadListPayments() {
+    if (window.SpaceSDKInstance) {
+      window.SpaceSDKInstance.loadListPayments();
+    } else {
+      window.SpaceSDKQueue.push(() => {
+        window.SpaceSDK.loadListPayments();
+      });
+    }
+  }
+
   static loadOrganizationSettings() {
     if (window.SpaceSDKInstance) {
       window.SpaceSDKInstance.loadOrganizationSettings();

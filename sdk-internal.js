@@ -109,6 +109,10 @@ class SpaceSDKInternal {
     this._loadPage(`/${this.organizationId}/clients/${id}/${type}`);
   }
 
+  loadListPayments() {
+    this._loadPage(`/${this.organizationId}/payments`);
+  }
+
   loadOrganizationSettings() {
     this._loadPage(`/${this.organizationId}/settings/organization`);
   }

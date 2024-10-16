@@ -63,6 +63,7 @@ SpaceSDK.loadDashboard();
 | SpaceSDK.loadListIncomingInvoices()                         | Load page with list of incoming invoices       |
 | SpaceSDK.loadCreateIncomingInvoice()                        | Load the create incoming invoice page          |
 | SpaceSDK.loadClientListDocuments(id: string, type?: string) | Load the client documents page by id and type. |
+| SpaceSDK.loadListPayments()                                 | Load page with list of payments                |
 | SpaceSDK.loadOrganizationSettings()                         | Load the organization settings page            |
 | SpaceSDK.loadCustomizations()                               | Load the customizations page                   |
 | SpaceSDK.loadAccountSettings()                              | Load the account settings page                 |
