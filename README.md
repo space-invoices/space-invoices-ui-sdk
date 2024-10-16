@@ -65,6 +65,7 @@ SpaceSDK.loadDashboard();
 | SpaceSDK.loadClientListDocuments(id: string, type?: string) | Load the client documents page by id and type. |
 | SpaceSDK.loadOrganizationSettings()                         | Load the organization settings page            |
 | SpaceSDK.loadCustomizations()                               | Load the customizations page                   |
+| SpaceSDK.loadAccountSettings()                              | Load the account settings page                 |
 
 <br>
 

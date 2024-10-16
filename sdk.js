@@ -232,6 +232,16 @@ class SpaceSDK {
     }
   }
 
+  static loadAccountSettings() {
+    if (window.SpaceSDKInstance) {
+      window.SpaceSDKInstance.loadAccountSettings();
+    } else {
+      window.SpaceSDKQueue.push(() => {
+        window.SpaceSDK.loadAccountSettings();
+      });
+    }
+  }
+
   static loadCustomizations() {
     if (window.SpaceSDKInstance) {
       window.SpaceSDKInstance.loadCustomizations();

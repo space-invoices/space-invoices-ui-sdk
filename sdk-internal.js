@@ -113,6 +113,10 @@ class SpaceSDKInternal {
     this._loadPage(`/${this.organizationId}/settings/organization`);
   }
 
+  loadAccountSettings() {
+    this._loadPage(`/${this.organizationId}/settings/account`);
+  }
+
   loadCustomizations() {
     this._loadPage(`/${this.organizationId}/settings/customizations`);
   }
