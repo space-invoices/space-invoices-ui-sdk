@@ -26,6 +26,7 @@ class SpaceSDKInternal {
     this.hideHeadMenu = options.hideHeadMenu || false;
     this.disableAutoHeight = options.disableAutoHeight || false;
     this.whiteLabelDomain = options.whiteLabelDomain;
+    this.locale = options.locale;
 
     this._registeredListeners = {};
 
@@ -208,6 +209,7 @@ class SpaceSDKInternal {
 
     let url = `${hostname}${page}?access_token=${this.accessToken}&sdk=true`;
     if (this.hideHeadMenu) url += "&hideHeadMenu=true";
+    if (this.locale) url += `&l=${this.locale}`;
 
     iframe.setAttribute("src", url);
     targetDiv.appendChild(iframe);

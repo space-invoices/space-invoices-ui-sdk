@@ -35,6 +35,7 @@ SpaceSDK.init({
 | hideHeadMenu      | Optional, defaults is false. Option to hide the head menu on loaded page.                                                                       |
 | showSideMenu      | Optional, default is false. Option to show side menu navigation.                                                                                |
 | disableAutoHeight | Optional, default is false. Disable auto iframe height adjustment.                                                                              |
+| locale            | Optional, default is 'en'. Two-character locale code (e.g., 'en', 'fr', 'de', 'sl', 'it', 'hr').                                                |
 
 <br>
 

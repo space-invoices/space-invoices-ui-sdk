@@ -10,10 +10,11 @@ class SpaceSDK {
    * @param {string} options.accessToken - Access token for the Space API
    * @param {string} options.organizationId - Organization ID to use
    * @param {string} options.targetDivId - ID of the div to render the SDK in
-   * @param {string} [options.environment] - Optiona, default is 'PROD'. Environment to use
-   * @param {boolean} [options.hideHeadMenu] - Optional. Weather to hide the head menu
-   * @param {boolean} [options.disableAutoHeight] - Optional. Weather to disable auto iframe height
+   * @param {string} [options.environment] - Optional, default is 'PROD'. Environment to use
+   * @param {boolean} [options.hideHeadMenu] - Optional. Whether to hide the head menu
+   * @param {boolean} [options.disableAutoHeight] - Optional. Whether to disable auto iframe height
    * @param {string} [options.whiteLabelDomain] - Optional. Domain in case of white label usage
+   * @param {string} [options.locale] - Optional. Two-character locale code (e.g., 'en', 'fr', 'de', 'sl', 'it', 'hr')
    */
   static init(options) {
     if (window.SpaceSDKInstance) {
