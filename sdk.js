@@ -320,6 +320,16 @@ class SpaceSDK {
       });
     }
   }
+
+  static loadExports() {
+    if (window.SpaceSDKInstance) {
+      window.SpaceSDKInstance.loadExports();
+    } else {
+      window.SpaceSDKQueue.push(() => {
+        window.SpaceSDK.loadExports();
+      });
+    }
+  }
 }
 
 window.SpaceSDK = SpaceSDK;

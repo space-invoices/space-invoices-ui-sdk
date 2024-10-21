@@ -126,6 +126,10 @@ class SpaceSDKInternal {
     this._loadPage(`/${this.organizationId}/settings/customizations`);
   }
 
+  loadExports() {
+    this._loadPage(`/${this.organizationId}/exports`);
+  }
+
   /**
    * LISTENERS
    */

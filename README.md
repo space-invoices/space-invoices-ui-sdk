@@ -68,6 +68,7 @@ SpaceSDK.loadDashboard();
 | SpaceSDK.loadOrganizationSettings()                         | Load the organization settings page            |
 | SpaceSDK.loadCustomizations()                               | Load the customizations page                   |
 | SpaceSDK.loadAccountSettings()                              | Load the account settings page                 |
+| SpaceSDK.loadExports()                                      | Load the exports page                          |
 
 <br>
 
