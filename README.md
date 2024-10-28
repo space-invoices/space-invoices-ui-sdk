@@ -69,6 +69,8 @@ SpaceSDK.loadDashboard();
 | SpaceSDK.loadCustomizations()                               | Load the customizations page                   |
 | SpaceSDK.loadAccountSettings()                              | Load the account settings page                 |
 | SpaceSDK.loadExports()                                      | Load the exports page                          |
+| SpaceSDK.loadPriceLists()                                   | Load the price lists page                      |
+| SpaceSDK.loadViewPriceList(id: string)                      | Load a specific price list view page           |
 
 <br>
 

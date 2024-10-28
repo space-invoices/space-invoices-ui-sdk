@@ -263,6 +263,33 @@ class SpaceSDK {
     }
   }
 
+  /**
+   * Loads the price lists page
+   */
+  static loadPriceLists() {
+    if (window.SpaceSDKInstance) {
+      window.SpaceSDKInstance.loadPriceLists();
+    } else {
+      window.SpaceSDKQueue.push(() => {
+        window.SpaceSDK.loadPriceLists();
+      });
+    }
+  }
+
+  /**
+   * Loads a specific price list view page
+   * @param {string} id - ID of the price list to load
+   */
+  static loadViewPriceList(id) {
+    if (window.SpaceSDKInstance) {
+      window.SpaceSDKInstance.loadViewPriceList(id);
+    } else {
+      window.SpaceSDKQueue.push(() => {
+        window.SpaceSDK.loadViewPriceList(id);
+      });
+    }
+  }
+
   // LISTENERS
 
   /**

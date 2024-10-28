@@ -130,6 +130,18 @@ class SpaceSDKInternal {
     this._loadPage(`/${this.organizationId}/exports`);
   }
 
+  loadPriceLists() {
+    this._loadPage(`/${this.organizationId}/pricelists`);
+  }
+
+  loadViewPriceList(id) {
+    if (!id) {
+      console.error("Error: ID is required to load a price list");
+      return;
+    }
+    this._loadPage(`/${this.organizationId}/pricelists/view/${id}`);
+  }
+
   /**
    * LISTENERS
    */
