@@ -142,6 +142,10 @@ class SpaceSDKInternal {
     this._loadPage(`/${this.organizationId}/pricelists/view/${id}`);
   }
 
+  loadListClients() {
+    this._loadPage(`/${this.organizationId}/clients`);
+  }
+
   /**
    * LISTENERS
    */

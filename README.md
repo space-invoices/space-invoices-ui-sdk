@@ -71,6 +71,7 @@ SpaceSDK.loadDashboard();
 | SpaceSDK.loadExports()                                      | Load the exports page                          |
 | SpaceSDK.loadPriceLists()                                   | Load the price lists page                      |
 | SpaceSDK.loadViewPriceList(id: string)                      | Load a specific price list view page           |
+| SpaceSDK.loadListClients()                                  | Load the list of clients page                  |
 
 <br>
 

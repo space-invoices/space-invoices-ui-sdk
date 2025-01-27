@@ -290,6 +290,19 @@ class SpaceSDK {
     }
   }
 
+  /**
+   * Loads the list of clients page
+   */
+  static loadListClients() {
+    if (window.SpaceSDKInstance) {
+      window.SpaceSDKInstance.loadListClients();
+    } else {
+      window.SpaceSDKQueue.push(() => {
+        window.SpaceSDK.loadListClients();
+      });
+    }
+  }
+
   // LISTENERS
 
   /**
