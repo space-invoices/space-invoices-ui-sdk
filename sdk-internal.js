@@ -51,7 +51,7 @@ class SpaceSDKInternal {
     this._loadPage(`/${this.organizationId}/documents/o/estimate`);
   }
 
-  loadListCreditNote() {
+  loadListCreditNotes() {
     this._loadPage(`/${this.organizationId}/documents/o/credit-note`);
   }
 
