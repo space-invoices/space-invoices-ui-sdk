@@ -72,6 +72,8 @@ SpaceSDK.loadDashboard();
 | SpaceSDK.loadPriceLists()                                   | Load the price lists page                      |
 | SpaceSDK.loadViewPriceList(id: string)                      | Load a specific price list view page           |
 | SpaceSDK.loadListClients()                                  | Load the list of clients page                  |
+| SpaceSDK.loadFursSettings(env?: string)                     | Load FURS (Financial Administration) settings page |
+| SpaceSDK.loadFinaSettings(env?: string)                     | Load FINA (Financial Agency) settings page     |
 
 <br>
 

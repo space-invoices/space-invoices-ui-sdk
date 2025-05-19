@@ -303,6 +303,47 @@ class SpaceSDK {
     }
   }
 
+  /**
+   * Loads the exports page
+   */
+  static loadExports() {
+    if (window.SpaceSDKInstance) {
+      window.SpaceSDKInstance.loadExports();
+    } else {
+      window.SpaceSDKQueue.push(() => {
+        window.SpaceSDK.loadExports();
+      });
+    }
+  }
+
+  /**
+   * Loads the FURS (Financial Administration of the Republic of Slovenia) settings page
+   * @param {string} [env] - Optional environment parameter for FURS settings
+   */
+  static loadFursSettings(env) {
+    if (window.SpaceSDKInstance) {
+      window.SpaceSDKInstance.loadFursSettings(env);
+    } else {
+      window.SpaceSDKQueue.push(() => {
+        window.SpaceSDK.loadFursSettings(env);
+      });
+    }
+  }
+
+  /**
+   * Loads the FINA (Financial Agency) settings page
+   * @param {string} [env] - Optional environment parameter for FINA settings
+   */
+  static loadFinaSettings(env) {
+    if (window.SpaceSDKInstance) {
+      window.SpaceSDKInstance.loadFinaSettings(env);
+    } else {
+      window.SpaceSDKQueue.push(() => {
+        window.SpaceSDK.loadFinaSettings(env);
+      });
+    }
+  }
+
   // LISTENERS
 
   /**
@@ -357,16 +398,6 @@ class SpaceSDK {
     } else {
       window.SpaceSDKQueue.push(() => {
         window.SpaceSDK.removeCreateDocumentListener(listener);
-      });
-    }
-  }
-
-  static loadExports() {
-    if (window.SpaceSDKInstance) {
-      window.SpaceSDKInstance.loadExports();
-    } else {
-      window.SpaceSDKQueue.push(() => {
-        window.SpaceSDK.loadExports();
       });
     }
   }

@@ -146,6 +146,22 @@ class SpaceSDKInternal {
     this._loadPage(`/${this.organizationId}/clients`);
   }
 
+  loadFursSettings(env = "") {
+    let envParam = "";
+    if (env) {
+      envParam = `;environment=${env}`;
+    }
+    this._loadPage(`/${this.organizationId}/settings/furs${envParam}`);
+  }
+
+  loadFinaSettings(env = "") {
+    let envParam = "";
+    if (env) {
+      envParam = `;environment=${env}`;
+    }
+    this._loadPage(`/${this.organizationId}/settings/fina${envParam}`);
+  }
+
   /**
    * LISTENERS
    */
